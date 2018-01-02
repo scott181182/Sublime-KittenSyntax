@@ -1,0 +1,112 @@
+%YAML 1.2
+---
+# See http://www.sublimetext.com/docs/3/syntax.html
+name: Kitten
+file_extensions: [ ktn, kitten ]
+scope: source.kitten
+
+contexts:
+  # The prototype context is prepended to all contexts but those setting
+  # meta_include_prototype: false.
+  #prototype:
+  #  - include: comments
+
+  main:
+    # The main context is the initial starting point of our syntax.
+    # Include other contexts from here (or specify them directly).
+    - include: linecomment
+    - include: blockcomment
+    - include: functiondef
+    - include: builtin
+    - include: control
+    - include: keyword
+    - include: boolean
+    - include: numeric
+    - include: singlequotestring
+    - include: doublequotestring
+    - include: operator
+
+  typesignature:
+    - include: linecomment
+    - include: blockcomment
+    - include: typename
+    - include: typeoperator
+    - include: permissions
+
+  linecomment:
+    - match: "//"
+      scope: comment.punctuation.kitten
+      push:
+        - meta_scope: comment.line.kitten
+        - match: "$\n?"
+          pop: true
+  blockcomment:
+    - match: "/\\*"
+      scope: comment.punctuation.kitten
+      push:
+        - meta_scope: comment.block.kitten
+        - match: "\\*/"
+          scope: comment.punctuation.kitten
+          pop: true
+
+  functiondef:
+    - match: "^\\s*(define)\\s*([a-z][0-9A-Za-z_]*|[!#$%&*+./;<=>?@^\\|~-]+)\\s*\\("
+      captures:
+        1: storage.type.kitten
+        2: entity.name.function.kitten
+      push:
+        - meta_scope: meta.functiondef.kitten
+        - include: typesignature
+        - match: "\\)\\s*[:{]"
+          pop: true
+
+  builtin:
+    - match: "\\b__[a-z_]+\\b"
+      scope: support.function.builtin.kitten
+  control:
+    - match: "\\b(match|case|if|else|elif)\\b"
+      scope: keyword.control.kitten
+  keyword:
+    - match: "\\b(type|define)\\b"
+      scope: storage.type.kitten
+  boolean:
+    - match: "\\b(true|false)\\b"
+      scope: constant.language.kitten
+  numeric:
+    - match: "\\b[+-]?[0-9]+(?:\\.[0-9]+)?\\b"
+      scope: constant.numeric.kitten
+  singlequotestring:
+    - match: "'"
+      scope: punctuation.definition.string.begin.kitten
+      push: 
+        - meta_scope: string.quoted.single.kitten
+        - match: "\\\\."
+          scope: constant.character.escape.kitten
+        - match: "'"
+          scope: punctuation.definition.string.end.kitten
+          pop: true
+  doublequotestring:
+    - match: "\""
+      scope: punctuation.definition.string.begin.kitten
+      push: 
+        - meta_scope: string.quoted.double.kitten
+        - match: "\\\\."
+          scope: constant.character.escape.kitten
+        - match: "\""
+          scope: punctuation.definition.string.end.kitten
+          pop: true
+  operator:
+    - match: "[!#$%&*+./;<=>?@^\\|~-]+"
+      scope: keyword.operator.kitten
+  typeoperator:
+    - match: "[&<=>?|]+"
+      scope: keyword.operator.kitten
+  typename:
+    - match: "\\b[A-Z][0-9A-Za-z_]*\\b"
+      scope: entity.name.type.kitten
+  permissions:
+    - match: "\\+"
+      push:
+        - match: "[A-Z][0-9A-Za-z_]+"
+          scope: "entity.name.trait.kitten"
+          pop: true

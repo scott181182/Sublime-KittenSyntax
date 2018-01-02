@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>name</key>
+    <string>Kitten Color Scheme</string>
+    <key>settings</key>
+    <array>
+        <!-- Global settings -->
+        <dict>
+            <key>settings</key>
+            <dict>
+            </dict>
+        </dict>
+        <!-- Scope styles -->
+        <dict>
+            <key>name</key>
+            <string>Comments</string>
+            <key>scope</key>
+            <string>comment</string>
+            <key>settings</key>
+            <dict>
+                <key>foreground</key>
+                <string>#888888</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>name</key>
+            <string>Strings</string>
+            <key>scope</key>
+            <string>string</string>
+            <key>settings</key>
+            <dict>
+                <key>foreground</key>
+                <string>#0088cc</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>name</key>
+            <string>Constants</string>
+            <key>scope</key>
+            <string>constant</string>
+            <key>settings</key>
+            <dict>
+                <key>foreground</key>
+                <string>#0088cc</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>name</key>
+            <string>Control Keywords</string>
+            <key>scope</key>
+            <string>keyword.control</string>
+            <key>settings</key>
+            <dict>
+                <key>foreground</key>
+                <string>#000088</string>
+                <key>fontStyle</key>
+                <string>bold</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>name</key>
+            <string>Other Keywords</string>
+            <key>scope</key>
+            <string>storage.type</string>
+            <key>settings</key>
+            <dict>
+                <key>foreground</key>
+                <string>#000088</string>
+                <key>fontStyle</key>
+                <string>bold</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>name</key>
+            <string>Entities</string>
+            <key>scope</key>
+            <string>entity.name.type</string>
+            <key>settings</key>
+            <dict>
+                <key>foreground</key>
+                <string>#bb66dd</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>name</key>
+            <string>Entities</string>
+            <key>scope</key>
+            <string>entity.name.trait</string>
+            <key>settings</key>
+            <dict>
+                <key>foreground</key>
+                <string>#bb66dd</string>
+                <key>fontStyle</key>
+                <string>bold</string>
+            </dict>
+        </dict>
+    </array>
+</dict>
+</plist>
