@@ -1,3 +1,3 @@
 # Sublime-KittenSyntax
-Kitten Syntax Highlighting for Sublime Text
+Sublime Text Syntax Highlighting for the [Kitten Programming Language](https://github.com/evincarofautumn/kitten)
 
